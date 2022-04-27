@@ -11,6 +11,8 @@ program_name = (By.ID, 'field_name_u')
 category = (By.CLASS_NAME, 'select2-selection--multiple')
 detailed_description = (By.ID, 'field_content_u')
 save_program = (By.CLASS_NAME, 'pull-right')
+my_profile_button = (By.CLASS_NAME, 'user-image')
+program_1 = (By.CLASS_NAME, 'odd')
 
 
 class my_profile_page(BasePage):
@@ -22,14 +24,14 @@ class my_profile_page(BasePage):
         self.find_element(program_button).click()
         sleep(2)
         self.find_element(create_program_button).click()
-        sleep(2)
         self.find_element(program_name).send_keys('program1')
-        #self.find_element(category).click()  #.send_keys('мышечная масса')
         sleep(1)
         self.find_element(category).send_keys('мышечная масса\n')
         self.find_element(detailed_description).send_keys('20 отжиманий, 20 приседаний, 20 отжиманий, банка протеина')
         self.find_element(save_program).click()
-        sleep(6)
+        self.find_element(my_profile_button).click()
+        self.find_element(program_button).click()
+        return self.find_element(program_1)
 
 
 
