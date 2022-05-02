@@ -1,4 +1,5 @@
 from pages.home_page import HomePage
+from base_page import BasePage
 from pages.login_gage import LoginPage
 from time import sleep
 
@@ -8,6 +9,7 @@ password = 'VKfbdm'
 
 def test_login_correct_data(driver):
     home_page = HomePage(driver)
+    base_page = BasePage(driver)
     home_page.open()
     home_page.open_sign_in()
     login_page = LoginPage(driver)

@@ -13,6 +13,9 @@ detailed_description = (By.ID, 'field_content_u')
 save_program = (By.CLASS_NAME, 'pull-right')
 my_profile_button = (By.CLASS_NAME, 'user-image')
 program_1 = (By.CLASS_NAME, 'odd')
+elem_id = (By.XPATH, '//*[@id="object-form"]/input[1]')
+name_program = (By.CLASS_NAME, 'content-header')
+category_program = (By.CLASS_NAME, 'description')
 
 
 class my_profile_page(BasePage):
@@ -29,9 +32,14 @@ class my_profile_page(BasePage):
         self.find_element(category).send_keys('мышечная масса\n')
         self.find_element(detailed_description).send_keys('20 отжиманий, 20 приседаний, 20 отжиманий, банка протеина')
         self.find_element(save_program).click()
+        sleep(2)
+        id_program = self.find_element(elem_id).get_attribute('value')
         self.find_element(my_profile_button).click()
         self.find_element(program_button).click()
-        return self.find_element(program_1)
+        id_1 = 'program_' + id_program
+        self.driver.find_element(By.XPATH, '//*[@id=' + '"' + id_1 + '"' + ']/td[1]/a').click()
+        return self.find_element(name_program).text, \
+               self.find_element(category_program).text
 
 
 

@@ -39,7 +39,6 @@ class LoginPage(BasePage):
     def invalid_input_window(self):
         return self.find_element(invalid_input)
 
-
     def invalid_password_input(self):
         self.email_field.send_keys(login)
         self.find_element(password_field).send_keys('11111111')

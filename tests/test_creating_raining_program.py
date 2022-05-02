@@ -12,10 +12,9 @@ def test_creating_raining_program(driver):
     sleep(2)
     home_page.open_sign_in()
     base_page.open_my_profile_page()
-    program = profile_page.creating_program()
-    program.click()
-    sleep(6)
-    assert program.is_displayed()
+    name_program, category_program = profile_page.creating_program()
+    assert name_program == 'program1\nредактировать' and \
+           category_program == '20 отжиманий, 20 приседаний, 20 отжиманий, банка протеина'
 
 
 

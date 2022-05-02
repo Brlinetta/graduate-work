@@ -6,9 +6,9 @@ from time import sleep
 login = 'User354'
 password = 'VKfbdm'
 login_button1 = (By.CLASS_NAME, 'btn-primary')
-
 email_field = (By.ID, 'email')
 password_field = (By.ID, 'password')
+
 
 class BasePage:
     def __init__(self, driver: WebDriver):
