@@ -11,9 +11,7 @@ weight_kg = (By.ID, 'measurement_value')
 time_measurement = (By.ID, 'measurement_create_time')
 save_measurement = (By.ID, 'btn-primary')
 
-#measurement = (By.CLASS_NAME, 'highcharts-markers')
 measurement = (By.XPATH, '//*[@class="highcharts-markers highcharts-series-0 highcharts-tracker"]//*[name()="path"]')
-#measurement =(By.CSS_SELECTOR, '#highcharts-0 > svg > g.highcharts-series-group > g.highcharts-markers.highcharts-series-0.highcharts-tracker > path:nth-child(1)')
 
 created_weight = (By.CLASS_NAME, 'select2-selection__rendered')
 data_1 = (By.CLASS_NAME, 'form-control')
@@ -57,8 +55,6 @@ class Measurements (BasePage):
         self.find_element(weight_kg).click()
         self.find_element(weight_kg).clear()
         self.find_element(weight_kg).send_keys('70\n')
-
-        sleep(6)
 
     def delete_measurements(self):
         sleep(2)

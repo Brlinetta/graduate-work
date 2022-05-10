@@ -1,6 +1,6 @@
 from base_page import BasePage
 from time import sleep
-from my_profile_page import my_profile_page
+from my_profile_page import My_profile_page
 from home_page import HomePage
 from workout_page import Workout_Page
 
@@ -8,7 +8,7 @@ from workout_page import Workout_Page
 def test_creating_workout(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
-    profile_page = my_profile_page(driver)
+    profile_page = My_profile_page(driver)
     workout_page = Workout_Page(driver)
     base_page.open_home_page()
     home_page.open_sign_in()
