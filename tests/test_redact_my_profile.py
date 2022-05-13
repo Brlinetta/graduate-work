@@ -10,8 +10,8 @@ patronymic = (By.ID, 'profile_patronymic')
 address = (By.ID, 'profile_addressИндекс')
 city = (By.ID, 'profile_city')
 additional_information = (By.ID, 'profile_info')
-contact_information =(By.ID, 'profile_contacts')
-
+contact_information = (By.ID, 'profile_contacts')
+profile_birth_time = (By.ID, 'profile_birth_time')
 
 def test_surname_redact(driver):
     base_page = BasePage(driver)
@@ -76,7 +76,7 @@ def test_patronymic_redact(driver):
     home_page.open_sign_in()
     base_page.open_my_profile_page()
     my_profile_page.click_redact_profile_button()
-    my_profile_page.redact_element(patronymic, 'Евгеньевич')
+    my_profile_page.redact_element(patronymic, 'Евгеньевич\n')
     my_profile_page.redact_save()
     data = my_profile_page.check_element(patronymic)
     assert data == 'Евгеньевич'
@@ -103,7 +103,7 @@ def test_address_redact (driver):
     home_page.open_sign_in()
     base_page.open_my_profile_page()
     my_profile_page.click_redact_profile_button()
-    my_profile_page.redact_element(address, 'улица 37')
+    my_profile_page.redact_element(address, 'улица 37\n')
     my_profile_page.redact_save()
     data = my_profile_page.check_element(address)
     assert data == 'улица 37'
@@ -117,10 +117,24 @@ def test_city_redact (driver):
     home_page.open_sign_in()
     base_page.open_my_profile_page()
     my_profile_page.click_redact_profile_button()
-    my_profile_page.redact_element(city, 'Минск')
+    my_profile_page.redact_element(city, 'Минск\n')
     my_profile_page.redact_save()
     data = my_profile_page.check_element(city)
     assert data == 'Минск'
+
+
+def test_date_birth(driver):
+    base_page = BasePage(driver)
+    home_page = HomePage(driver)
+    my_profile_page = My_profile_page(driver)
+    base_page.open_home_page()
+    home_page.open_sign_in()
+    base_page.open_my_profile_page()
+    my_profile_page.click_redact_profile_button()
+    my_profile_page.redact_element(profile_birth_time, '19.08.2000\n')
+    my_profile_page.redact_save()
+    data = my_profile_page.check_element(profile_birth_time)
+    assert data == '19.08.2000'
 
 
 def test_additional_information(driver):

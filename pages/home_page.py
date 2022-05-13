@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from time import sleep
 
 login_button = (By.CLASS_NAME, 'login-button')
+exercises_button = (By.XPATH, '//*[@id="top-menu"]/a[4]')
 
 
 class HomePage(BasePage):
@@ -14,4 +15,7 @@ class HomePage(BasePage):
 
     def open_sign_in(self):
         self.find_element(login_button).click()
+
+    def open_exercises_page(self):
+        self.find_element(exercises_button).click()
 

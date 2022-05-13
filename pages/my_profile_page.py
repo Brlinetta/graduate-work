@@ -27,8 +27,8 @@ name_field = (By.ID, 'profile_first_name')
 
 patronymic_field = (By.ID, 'profile_first_name')
 
+return_home_page_button = (By.CLASS_NAME, 'logo')
 
-'btn-primary'
 
 class  My_profile_page(BasePage):
     def __init__(self, driver):
@@ -73,3 +73,7 @@ class  My_profile_page(BasePage):
     def check_invalid(self):
         notification = self.find_element(notification_invalid_input).text
         return notification
+
+    def return_home_page_check(self):
+        self.find_element(return_home_page_button).click()
+        return self.driver.current_url
