@@ -18,6 +18,8 @@ category_shin_exercises = (By.XPATH, '//*[@id="solar"]/div[2]/div[3]/section[2]/
 
 beginners_dont_click_button = (By.XPATH, '//*[@id="solar"]/div[2]/div[3]/section[2]/div[2]/div[2]/fieldset[2]/div[1]')
 
+professional_dont_click_button = (By.XPATH, '//*[@id="solar"]/div[2]/div[3]/section[2]/div[2]/div[2]/fieldset[2]/div[2]')
+
 
 class Exercise_Search (BasePage):
     def __init__(self, driver):
@@ -68,6 +70,15 @@ class Exercise_Search (BasePage):
     def click_category_shin(self):
         self.find_element(category_shin_exercises).click()
 
+
     def dont_click_level_beginners(self):
         self.find_element(beginners_dont_click_button).click()
+
+    def dont_click_level_professional(self):
+        self.find_element(professional_dont_click_button).click()
+
+    def check_level(self, level):
+        return self.find_element(level).text
+
+
 
