@@ -9,7 +9,6 @@ exercise_2 = (By.ID, 'exercise-197')
 level_1 = (By.XPATH, '//*[@id="solar"]/div[2]/div[3]/section[2]/div[3]/div[1]/div[3]')
 
 
-
 def test_level_professional(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)

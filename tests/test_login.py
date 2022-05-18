@@ -2,11 +2,15 @@ from pages.home_page import HomePage
 from base_page import BasePage
 from pages.login_gage import LoginPage
 from time import sleep
+from allure_commons.types import AttachmentType
+import allure
 
 login = 'User354'
 password = 'VKfbdm'
 
 
+@allure.feature('login')
+@allure.story('login true data')
 def test_login_correct_data(driver):
     home_page = HomePage(driver)
     base_page = BasePage(driver)
@@ -18,6 +22,8 @@ def test_login_correct_data(driver):
     assert login_page.username_tru().text == login
 
 
+@allure.feature('login')
+@allure.story('login false data 1')
 def test_login_invalid_login(driver):
     home_page = HomePage(driver)
     home_page.open()
@@ -28,6 +34,8 @@ def test_login_invalid_login(driver):
     assert login_page.invalid_input_window().is_displayed()
 
 
+@allure.feature('login')
+@allure.story('login false data 2')
 def test_password_invalid_login(driver):
     home_page = HomePage(driver)
     home_page.open()
@@ -37,8 +45,4 @@ def test_password_invalid_login(driver):
     sleep(4)
     assert login_page.invalid_input_window().is_displayed()
 
-
-
     #assert login_page.email_field.is_displayed()
-
-

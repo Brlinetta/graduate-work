@@ -2,8 +2,6 @@ from base_page import BasePage
 from time import sleep
 from selenium.webdriver.common.by import By
 
-from selenium.webdriver.common.keys import Keys
-import pyautogui
 
 category_neck = (By.XPATH, '//*[@id="solar"]/div[2]/div[3]/section[2]/div[3]/div[1]/div[1]')
 category_shoulders_button = (By.XPATH, '//*[@id="solar"]/div[2]/div[3]/section[2]/div[2]/div[1]/div[2]/a[2]')
