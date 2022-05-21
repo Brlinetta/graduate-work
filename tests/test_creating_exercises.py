@@ -1,8 +1,10 @@
-from base_page import BasePage
-from my_exercises_page import Exercises
-from home_page import HomePage
+from pages.base_page import BasePage
+from pages.my_exercises_page import Exercises
+from pages.home_page import HomePage
+import allure
 
 
+@allure.feature('test_exercises1')
 def test_create_exercises(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -16,6 +18,7 @@ def test_create_exercises(driver):
            category_exercises == 'Категория: Спина'
 
 
+@allure.feature('test_exercises2')
 def test_redact_exercises(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -29,8 +32,3 @@ def test_redact_exercises(driver):
     name_exercises, category_exercises = exercises.open_exercises(id_exercises_redact)
     assert name_exercises == 'exercise 1 redact\nредактировать' and\
            category_exercises == 'Категория: Шея'
-
-
-
-
-

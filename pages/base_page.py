@@ -29,7 +29,3 @@ class BasePage:
         self.find_element(password_field).send_keys(password)
         sleep(2)
         self.find_element(login_button1).click()
-
-
-
-

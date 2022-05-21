@@ -16,8 +16,6 @@ class LoginPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
-        #self.email_field = self.find_element(email_field)
-
 
     @property
     def email_field(self):

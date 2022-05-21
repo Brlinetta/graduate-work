@@ -1,6 +1,5 @@
-from base_page import BasePage
+from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
-from time import sleep
 
 login_button = (By.CLASS_NAME, 'login-button')
 exercises_button = (By.XPATH, '//*[@id="top-menu"]/a[4]')

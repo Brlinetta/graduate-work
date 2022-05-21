@@ -1,14 +1,17 @@
-from home_page import HomePage
+from pages.home_page import HomePage
 from selenium.webdriver.common.by import By
-from base_page import BasePage
+from pages.base_page import BasePage
 from time import sleep
-from exercises_page import Exercise_Search
+from pages.exercises_page import Exercise_Search
+import allure
+
 
 exercise_1 = (By.ID, 'exercise-198')
 exercise_2 = (By.ID, 'exercise-197')
 level_1 = (By.XPATH, '//*[@id="solar"]/div[2]/div[3]/section[2]/div[3]/div[1]/div[3]')
 
 
+@allure.feature('level_professional_exercises')
 def test_level_professional(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -25,6 +28,7 @@ def test_level_professional(driver):
     assert level == 'Уровень: Продвинутым'
 
 
+@allure.feature('level_beginners_exercises')
 def test_level_beginners(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)

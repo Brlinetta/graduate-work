@@ -1,11 +1,14 @@
-from base_page import BasePage
-from my_measurements import Measurements
-from home_page import HomePage
+from pages.base_page import BasePage
+from pages.my_measurements import Measurements
+from pages.home_page import HomePage
+import allure
+
 category = 'Вес'
 data = '03.05.2022'
 kg = '80\n'
 
 
+@allure.feature('test_create_measurement')
 def test_create_measurements(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -20,6 +23,7 @@ def test_create_measurements(driver):
     assert data_measurements == ('Вес', '80', '3.5.2022')
 
 
+@allure.feature('test_redact_measurement')
 def test_redact_measurements(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -35,6 +39,7 @@ def test_redact_measurements(driver):
     assert data_measurements == ('Вес', '70', '3.5.2022')
 
 
+@allure.feature('test_delete_measurement')
 def test_delete_measurements(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)

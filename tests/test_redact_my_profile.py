@@ -1,8 +1,10 @@
-from base_page import BasePage
+from pages.base_page import BasePage
 from time import sleep
-from my_profile_page import My_profile_page
-from home_page import HomePage
+from pages.my_profile_page import My_profile_page
+from pages.home_page import HomePage
 from selenium.webdriver.common.by import By
+import allure
+
 
 surname = (By.ID, 'profile_last_name')
 name_1 = (By.ID, 'profile_first_name')
@@ -13,6 +15,8 @@ additional_information = (By.ID, 'profile_info')
 contact_information = (By.ID, 'profile_contacts')
 profile_birth_time = (By.ID, 'profile_birth_time')
 
+
+@allure.feature('test_my_profile1')
 def test_surname_redact(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -28,6 +32,7 @@ def test_surname_redact(driver):
     assert surname_2 == 'Пахомов'
 
 
+@allure.feature('test_my_profile2')
 def test_surname_redact_invalid_data(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -41,6 +46,7 @@ def test_surname_redact_invalid_data(driver):
     assert notification_invalid_input == 'Значение «Фамилия» должно содержать максимум 20 символов.'
 
 
+@allure.feature('test_my_profile3')
 def test_name_redact(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -55,6 +61,7 @@ def test_name_redact(driver):
     assert name == 'Никита'
 
 
+@allure.feature('test_my_profile4')
 def test_name_redact_invalid_data(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -68,6 +75,7 @@ def test_name_redact_invalid_data(driver):
     assert notification_invalid_input == 'Значение «Имя» должно содержать максимум 20 символов.'
 
 
+@allure.feature('test_my_profile5')
 def test_patronymic_redact(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -82,6 +90,7 @@ def test_patronymic_redact(driver):
     assert data == 'Евгеньевич'
 
 
+@allure.feature('test_my_profile6')
 def test_patronymic_redact_invalid_data(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -95,6 +104,7 @@ def test_patronymic_redact_invalid_data(driver):
     assert notification_invalid_input == 'Значение «Отчество» должно содержать максимум 20 символов.'
 
 
+@allure.feature('test_my_profile7')
 def test_address_redact (driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -109,6 +119,7 @@ def test_address_redact (driver):
     assert data == 'улица 37'
 
 
+@allure.feature('test_my_profile8')
 def test_city_redact (driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -123,6 +134,7 @@ def test_city_redact (driver):
     assert data == 'Минск'
 
 
+@allure.feature('test_my_profile9')
 def test_date_birth(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -137,6 +149,7 @@ def test_date_birth(driver):
     assert data == '19.08.2000'
 
 
+@allure.feature('test_my_profile10')
 def test_additional_information(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -151,6 +164,7 @@ def test_additional_information(driver):
     assert data == 'я человек'
 
 
+@allure.feature('test_my_profile11')
 def test_contact_information(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)

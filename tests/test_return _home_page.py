@@ -1,9 +1,10 @@
-from base_page import BasePage
-from time import sleep
-from my_profile_page import My_profile_page
-from home_page import HomePage
+from pages.base_page import BasePage
+from pages.my_profile_page import My_profile_page
+from pages.home_page import HomePage
+import allure
 
 
+@allure.feature('home_page')
 def test_return_home_page(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)

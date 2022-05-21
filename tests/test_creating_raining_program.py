@@ -1,9 +1,11 @@
-from base_page import BasePage
+from pages.base_page import BasePage
 from time import sleep
-from my_profile_page import My_profile_page
-from home_page import HomePage
+from pages.my_profile_page import My_profile_page
+from pages.home_page import HomePage
+import allure
 
 
+@allure.feature('test_my_program1')
 def test_creating_raining_program(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -15,6 +17,4 @@ def test_creating_raining_program(driver):
     name_program, category_program = profile_page.creating_program()
     assert name_program == 'program1\nредактировать' and \
            category_program == '20 отжиманий, 20 приседаний, 20 отжиманий, банка протеина'
-
-
 

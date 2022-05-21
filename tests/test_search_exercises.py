@@ -1,8 +1,10 @@
-from home_page import HomePage
+from pages.home_page import HomePage
 from selenium.webdriver.common.by import By
-from base_page import BasePage
+from pages.base_page import BasePage
 from time import sleep
-from exercises_page import Exercise_Search
+from pages.exercises_page import Exercise_Search
+import allure
+
 
 neck_exercises_1 = (By.ID, 'exercise-197')
 
@@ -25,6 +27,7 @@ femur_exercises_1 = (By.ID, 'exercise-44')
 shin_exercises_1 = (By.ID, 'exercise-49')
 
 
+@allure.feature('exercises')
 def test_exercise_search_category_neck(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -40,6 +43,7 @@ def test_exercise_search_category_neck(driver):
     assert category == 'Категория: Шея'
 
 
+@allure.feature('exercises2')
 def test_exercise_search_category_shoulders(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -54,6 +58,7 @@ def test_exercise_search_category_shoulders(driver):
     assert category == 'Категория: Плечи'
 
 
+@allure.feature('exercises3')
 def test_exercise_search_category_back(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -68,6 +73,7 @@ def test_exercise_search_category_back(driver):
     assert category == 'Категория: Спина'
 
 
+@allure.feature('exercises4')
 def test_exercise_search_category_breast(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -82,6 +88,7 @@ def test_exercise_search_category_breast(driver):
     assert category == 'Категория: Грудь'
 
 
+@allure.feature('exercises5')
 def test_exercise_search_category_triceps(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -96,6 +103,7 @@ def test_exercise_search_category_triceps(driver):
     assert category == 'Категория: Трицепс'
 
 
+@allure.feature('exercises6')
 def test_exercise_search_category_biceps(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -110,6 +118,7 @@ def test_exercise_search_category_biceps(driver):
     assert category == 'Категория: Бицепс'
 
 
+@allure.feature('exercises8')
 def test_exercise_search_category_forearm(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -124,6 +133,7 @@ def test_exercise_search_category_forearm(driver):
     assert category == 'Категория: Предплечье'
 
 
+@allure.feature('exercises9')
 def test_exercise_search_category_press(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -138,6 +148,7 @@ def test_exercise_search_category_press(driver):
     assert category == 'Категория: Пресс'
 
 
+@allure.feature('exercises10')
 def test_exercise_search_category_femur(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -152,6 +163,7 @@ def test_exercise_search_category_femur(driver):
     assert category == 'Категория: Бедра'
 
 
+@allure.feature('exercises11')
 def test_exercise_search_category_shin(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -164,5 +176,3 @@ def test_exercise_search_category_shin(driver):
     exercise_search.looking_element_exercises(shin_exercises_1)
     category = exercise_search.check_category()
     assert category == 'Категория: Голень'
-
-

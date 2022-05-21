@@ -1,14 +1,17 @@
-from home_page import HomePage
+from pages.home_page import HomePage
 from selenium.webdriver.common.by import By
-from base_page import BasePage
+from pages.base_page import BasePage
 from time import sleep
-from exercises_page import Exercise_Search
+from pages.exercises_page import Exercise_Search
+import allure
+
 
 exercise_1 = (By.ID, 'exercise-197')
 exercise_2 = (By.ID, 'exercise-199')
 equipment_3 = (By.XPATH, '//*[@id="solar"]/div[2]/div[3]/section[2]/div[3]/div[1]/div[4]')
 
 
+@allure.feature('equipment_exercises1')
 def test_without_equipment(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -26,6 +29,7 @@ def test_without_equipment(driver):
     assert equipment == 'Снаряжение: Собственное тело'
 
 
+@allure.feature('equipment_exercises2')
 def test_equipment(driver):
     base_page = BasePage(driver)
     home_page = HomePage(driver)
@@ -38,5 +42,3 @@ def test_equipment(driver):
     exercise_search.looking_element_exercises(exercise_2)
     equipment = exercise_search.check_level(equipment_3)
     assert equipment == 'Снаряжение: Прочее'
-
-

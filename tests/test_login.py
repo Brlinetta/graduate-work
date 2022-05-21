@@ -1,8 +1,7 @@
 from pages.home_page import HomePage
-from base_page import BasePage
+from pages.base_page import BasePage
 from pages.login_gage import LoginPage
 from time import sleep
-from allure_commons.types import AttachmentType
 import allure
 
 login = 'User354'
@@ -44,5 +43,3 @@ def test_password_invalid_login(driver):
     login_page.invalid_password_input()
     sleep(4)
     assert login_page.invalid_input_window().is_displayed()
-
-    #assert login_page.email_field.is_displayed()
