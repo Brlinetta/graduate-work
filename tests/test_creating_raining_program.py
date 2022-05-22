@@ -17,4 +17,3 @@ def test_creating_raining_program(driver):
     name_program, category_program = profile_page.creating_program()
     assert name_program == 'program1\nредактировать' and \
            category_program == '20 отжиманий, 20 приседаний, 20 отжиманий, банка протеина'
-

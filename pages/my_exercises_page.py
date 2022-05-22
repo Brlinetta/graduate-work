@@ -64,14 +64,3 @@ class Exercises (BasePage):
         sleep(2)
         id_exercises = self.find_element(elem_id).get_attribute('value')
         return id_exercises
-
-
-
-
-
-
-
-
-
-
-

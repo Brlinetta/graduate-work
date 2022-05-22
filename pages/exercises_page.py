@@ -30,13 +30,11 @@ class Exercise_Search (BasePage):
 
     def looking_element_exercises(self, exercises):
         window_before = self.driver.window_handles[0]
-        #print (window_before)
         sleep(5)
         self.find_element(exercises).click()
         window_after = self.driver.window_handles[1]
         sleep(5)
         self.driver.switch_to.window(window_after)
-        #print (window_after)
         sleep(5)
 
     def check_category(self):
@@ -72,7 +70,6 @@ class Exercise_Search (BasePage):
     def click_category_shin(self):
         self.find_element(category_shin_exercises).click()
 
-
     def dont_click_level_beginners(self):
         self.find_element(beginners_dont_click_button).click()
 
@@ -81,7 +78,6 @@ class Exercise_Search (BasePage):
 
     def check_level(self, level):
         return self.find_element(level).text
-
 
     def dont_click_equipment(self):
         self.find_element(equipment_dont_click).click()

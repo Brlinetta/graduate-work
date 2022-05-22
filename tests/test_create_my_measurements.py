@@ -51,7 +51,6 @@ def test_delete_measurements(driver):
     measurements.create_measurements(category, data, kg)
     measurements.check_measurements()
     measurements.delete_measurements()
-
     if FileNotFoundError:
         assert True
     else:

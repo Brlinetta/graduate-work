@@ -42,6 +42,3 @@ def test_level_beginners(driver):
     exercise_search.looking_element_exercises(exercise_2)
     level = exercise_search.check_level(level_1)
     assert level == 'Уровень: Начинающим'
-
-
-
